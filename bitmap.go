@@ -8,8 +8,8 @@ import (
 	_ "image/jpeg" // load image formats for users of the API
 	_ "image/png"
 
-	"github.com/go-text/typesetting/font"
-	"github.com/go-text/typesetting/shaping"
+	"github.com/trendvidia/typesetting/font"
+	"github.com/trendvidia/typesetting/shaping"
 	scale "golang.org/x/image/draw"
 	_ "golang.org/x/image/tiff" // load image formats for users of the API
 )

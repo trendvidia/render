@@ -1,12 +1,12 @@
-module github.com/go-text/render
+module github.com/trendvidia/render
 
 go 1.19
 
 require (
-	github.com/go-text/typesetting v0.3.4
-	github.com/go-text/typesetting-utils v0.0.0-20260223113751-2d88ac90dae3
+	github.com/go-text/typesetting-utils v0.0.0-20260327125527-fbf04b32d9ad
 	github.com/srwiley/oksvg v0.0.0-20221011165216-be6e8873101c
 	github.com/srwiley/rasterx v0.0.0-20220730225603-2ab79fcdd4ef
+	github.com/trendvidia/typesetting v0.3.4
 	golang.org/x/image v0.23.0
 )
 

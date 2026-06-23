@@ -6,8 +6,8 @@ import (
 	"image/draw"
 	"io"
 
-	"github.com/go-text/typesetting/font"
-	"github.com/go-text/typesetting/shaping"
+	"github.com/trendvidia/typesetting/font"
+	"github.com/trendvidia/typesetting/shaping"
 	"github.com/srwiley/oksvg"
 	"github.com/srwiley/rasterx"
 )

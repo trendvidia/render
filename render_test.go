@@ -9,9 +9,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/go-text/render"
-	"github.com/go-text/typesetting/font"
-	"github.com/go-text/typesetting/shaping"
+	"github.com/trendvidia/render"
+	"github.com/trendvidia/typesetting/font"
+	"github.com/trendvidia/typesetting/shaping"
 
 	"golang.org/x/image/math/fixed"
 

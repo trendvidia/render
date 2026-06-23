@@ -6,9 +6,9 @@ import (
 	"math"
 	"sort"
 
-	"github.com/go-text/typesetting/font"
-	"github.com/go-text/typesetting/font/opentype"
-	"github.com/go-text/typesetting/shaping"
+	"github.com/trendvidia/typesetting/font"
+	"github.com/trendvidia/typesetting/font/opentype"
+	"github.com/trendvidia/typesetting/shaping"
 	"github.com/srwiley/rasterx"
 	"golang.org/x/image/math/fixed"
 )
