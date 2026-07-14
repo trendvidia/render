@@ -5,8 +5,8 @@ github.com/srwiley/oksvg v0.0.0-20221011165216-be6e8873101c h1:km8GpoQut05eY3GiY
 github.com/srwiley/oksvg v0.0.0-20221011165216-be6e8873101c/go.mod h1:cNQ3dwVJtS5Hmnjxy6AgTPd0Inb3pW05ftPSX7NZO7Q=
 github.com/srwiley/rasterx v0.0.0-20220730225603-2ab79fcdd4ef h1:Ch6Q+AZUxDBCVqdkI8FSpFyZDtCVBc2VmejdNrm5rRQ=
 github.com/srwiley/rasterx v0.0.0-20220730225603-2ab79fcdd4ef/go.mod h1:nXTWP6+gD5+LUJ8krVhhoeHjvHTutPxMYl5SvkcnJNE=
-github.com/trendvidia/typesetting v0.3.5 h1:E6afHyLi4f/p+x72HZtb+YXuDEur/PYeas0VKBLUyrg=
-github.com/trendvidia/typesetting v0.3.5/go.mod h1:5RdhDjsy4NHIgKNpx0rdywntebqbjt+TEtixeABSfJQ=
+github.com/trendvidia/typesetting v0.3.6 h1:YYEJa2he1y0M0NNWtbUnKvJuWZNGdrvlOEpmjnd1QcU=
+github.com/trendvidia/typesetting v0.3.6/go.mod h1:haqh3CUmhNK+nsgJveDOTD/icM4eAr1RB844Hohvvr0=
 github.com/yuin/goldmark v1.4.13/go.mod h1:6yULJ656Px+3vBD8DxQVa3kxgyrAnzto9xy5taEt/CY=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/crypto v0.0.0-20210921155107-089bfa567519/go.mod h1:GvvjBRRGRdwPK5ydBHafDWAxML/pGHZbMvKqRZ5+Abc=
