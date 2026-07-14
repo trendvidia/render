@@ -164,13 +164,51 @@ func TestBitmapBaseline(t *testing.T) {
 	// w.Close()
 
 	// compare against the reference
-	var pngBytes bytes.Buffer
-	png.Encode(&pngBytes, img)
+	assertImageMatchesReference(t, img, "testdata/bitmap_emoji.png")
+}
 
-	reference, _ := os.ReadFile("testdata/bitmap_emoji.png")
-	if !bytes.Equal(pngBytes.Bytes(), reference) {
-		t.Error("unexpected image output")
+// assertImageMatchesReference compares a rendered image against a reference
+// PNG, tolerating small per-pixel differences: antialiasing coverage varies
+// slightly between CPU architectures (e.g. FMA rounding on arm64 vs amd64),
+// so a byte-exact comparison would be flaky across platforms.
+func assertImageMatchesReference(t *testing.T, img image.Image, path string) {
+	t.Helper()
+
+	f, err := os.Open(path)
+	if err != nil {
+		t.Fatalf("opening reference image: %v", err)
 	}
+	defer f.Close()
+	ref, err := png.Decode(f)
+	if err != nil {
+		t.Fatalf("decoding reference image: %v", err)
+	}
+
+	if ref.Bounds() != img.Bounds() {
+		t.Errorf("unexpected image bounds: got %v, want %v", img.Bounds(), ref.Bounds())
+		return
+	}
+	// Out of the 16-bit channel range; ~8x the largest difference observed
+	// between architectures, well below genuine rendering changes.
+	const tolerance = 0x0800
+	for y := ref.Bounds().Min.Y; y < ref.Bounds().Max.Y; y++ {
+		for x := ref.Bounds().Min.X; x < ref.Bounds().Max.X; x++ {
+			rr, rg, rb, ra := ref.At(x, y).RGBA()
+			gr, gg, gb, ga := img.At(x, y).RGBA()
+			if delta(rr, gr) > tolerance || delta(rg, gg) > tolerance ||
+				delta(rb, gb) > tolerance || delta(ra, ga) > tolerance {
+				t.Errorf("unexpected image output: pixel (%d, %d) is %v, want %v", x, y, img.At(x, y), ref.At(x, y))
+				return
+			}
+		}
+	}
+}
+
+func delta(a, b uint32) uint32 {
+	if a > b {
+		return a - b
+	}
+	return b - a
 }
 
 func TestMixedLTR_RTL(t *testing.T) {
@@ -190,11 +228,5 @@ func TestMixedLTR_RTL(t *testing.T) {
 	// w.Close()
 
 	// compare against the reference
-	var pngBytes bytes.Buffer
-	png.Encode(&pngBytes, img)
-
-	reference, _ := os.ReadFile("testdata/mixed_ltr_rtl.png")
-	if !bytes.Equal(pngBytes.Bytes(), reference) {
-		t.Error("unexpected image output")
-	}
+	assertImageMatchesReference(t, img, "testdata/mixed_ltr_rtl.png")
 }
